@@ -60,8 +60,8 @@ startBtn.addEventListener('click', () => {
    })
 
    greeting.textContent = ''
-   console.log(wrapper.contains(turn))
-   wrapper.removeChild(turn)
+   // console.log(wrapper.contains(turn))
+   // wrapper.removeChild(turn)
    console.log(randomNum = Math.floor((Math.random() * 2) + 1))
 })
 
@@ -76,10 +76,15 @@ function playGame(e) {
           e.target.innerHTML = '&times'
           e.target.style.color = 'red'
           e.target.removeEventListener('click', playGame)
+          turn.textContent = 'Zeroes turn'
+          turn.style.color = 'green'
       } else {
           e.target.innerHTML = '&#9675'
           e.target.style.color = 'green'
           e.target.removeEventListener('click', playGame)
+         
+          turn.textContent = 'Crosses turn'
+          turn.style.color = 'red'
       }
 
      
@@ -260,15 +265,16 @@ function playGame(e) {
        switch(greeting.textContent) {
 
          case 'Zeroes have won': counter++
-                                 zeroesScore.textContent =  `Zeroes score: ${counter++}`
+                                 zeroesScore.textContent =  `Zeroes score: ${counter}`
                                  break;
          case 'Crosses have won': counter1++
-                                  crossesScore.textContent =  `Crosses score: ${counter1++}`
+                                  crossesScore.textContent =  `Crosses score: ${counter1}`
                                   break;
        }   
 
 
       if(greeting.textContent === 'Zeroes have won' || greeting.textContent === 'Crosses have won' ) {
+         wrapper.removeChild(turn)
          arrfromBoardCells.forEach(cell => {
             cell.removeEventListener('click', playGame)
          })
