@@ -1,9 +1,22 @@
+body .score-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+body #crosses-score {
+  color: red;
+  font-size: 1.5rem;
+}
+body #zeroes-score {
+  color: green;
+  font-size: 1.5rem;
+}
 body #container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 600px;
 }
 body #container button {
   margin-bottom: 25px;

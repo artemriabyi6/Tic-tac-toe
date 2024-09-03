@@ -5,8 +5,18 @@ const greeting = document.createElement('h2')
 const startBtn = document.getElementById('start-btn')
 const choosetBtn = document.getElementById('choose-btn')
 const turn = document.createElement('p')
+const crossesScore = document.getElementById('crosses-score')
+const zeroesScore = document.getElementById('zeroes-score')
 
-// let counter = 0
+console.log(crossesScore, zeroesScore)
+
+
+
+ let counter = 0
+ let counter1 = 0
+
+ crossesScore.textContent =  `Crosses score: ${counter1}`
+zeroesScore.textContent =  `Zeroes score: ${counter}`
 
 let randomNum = function(){Math.floor((Math.random() * 2) + 1)};
 
@@ -15,7 +25,7 @@ function chooseTurn() {
    wrapper.insertBefore(turn, gameBoard)
    
    randomNum = Math.floor((Math.random() * 2) + 1)
-   
+   console.log(randomNum)
    turn.classList.add('turn')
    if(randomNum % 2 === 0) {
       turn.textContent = 'Zeroes turn'
@@ -23,9 +33,9 @@ function chooseTurn() {
       turn.textContent = 'Crosses turn'
    }
 
-   if(turn.textContent !== null) {
-      choosetBtn.removeEventListener('click', chooseTurn)
-   }   
+   // if(turn.textContent !== null) {
+   //    choosetBtn.removeEventListener('click', chooseTurn)
+   // }   
 
    if(turn.textContent !== null) {
       arrfromBoardCells.forEach(cell => {
@@ -46,19 +56,20 @@ startBtn.addEventListener('click', () => {
    arrfromBoardCells.forEach(cell => {
       cell.textContent = ''
       cell.style.backgroundColor = 'inherit'
-      cell.addEventListener('click', playGame)
+       cell.addEventListener('click', playGame)
    })
 
    greeting.textContent = ''
+   console.log(wrapper.contains(turn))
    wrapper.removeChild(turn)
-   
+   console.log(randomNum = Math.floor((Math.random() * 2) + 1))
 })
 
 
 
 function playGame(e) {
       randomNum++
-
+      console.log(randomNum)
       
 
       if(randomNum % 2 === 0) {
@@ -86,8 +97,8 @@ function playGame(e) {
            }
    
       if(boardCells[3].textContent === '\u00D7' && boardCells[4].textContent === '\u00D7' && boardCells[5].textContent === '\u00D7'){
-              console.log('Хрестики перемогли')
-              let greeting = document.createElement('h2')
+             
+              greeting.style.color = 'red'
               greeting.classList.add('greeting')
               greeting.textContent = 'Crosses have won'
               gameBoard.prepend(greeting) 
@@ -246,12 +257,24 @@ function playGame(e) {
 
 
       greeting.textContent === 'Zeroes have won' ? greeting.style.color = 'green' :  greeting.style.color = 'red';
+       switch(greeting.textContent) {
+
+         case 'Zeroes have won': counter++
+                                 zeroesScore.textContent =  `Zeroes score: ${counter++}`
+                                 break;
+         case 'Crosses have won': counter1++
+                                  crossesScore.textContent =  `Crosses score: ${counter1++}`
+                                  break;
+       }   
+
 
       if(greeting.textContent === 'Zeroes have won' || greeting.textContent === 'Crosses have won' ) {
          arrfromBoardCells.forEach(cell => {
             cell.removeEventListener('click', playGame)
          })
       }
+
+      
       
    }
 
