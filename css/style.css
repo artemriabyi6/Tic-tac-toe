@@ -1,6 +1,8 @@
 body {
   margin: 0;
   padding: 0;
+  background: linear-gradient(lightpink, lightblue);
+  transition: 0.5s;
 }
 body .score-box {
   display: flex;
@@ -20,7 +22,8 @@ body #container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 600px;
+  height: auto;
+  padding: 0px 0px 135px 0px;
 }
 body #container button {
   margin-bottom: 25px;
@@ -45,6 +48,7 @@ body #container .turn {
   font-size: 2rem;
   font-weight: bold;
   margin-top: 0;
+  margin-bottom: 10px;
   animation-name: fade;
   animation-duration: 1.5s;
 }
@@ -56,7 +60,7 @@ body #container #game-board {
 }
 body #container #game-board .board-cell {
   width: 195px;
-  height: 148px;
+  height: 128px;
   border: 0.5px solid black;
   display: flex;
   justify-content: center;

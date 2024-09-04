@@ -7,15 +7,19 @@ const choosetBtn = document.getElementById('choose-btn')
 const turn = document.createElement('p')
 const crossesScore = document.getElementById('crosses-score')
 const zeroesScore = document.getElementById('zeroes-score')
-
-console.log(crossesScore, zeroesScore)
-
+const body = document.getElementById('body')
 
 
+
+// let backgroundColors = ['lightblue', 'lightpink', 'lightgreen']
+
+
+
+ let color = 0
  let counter = 0
  let counter1 = 0
 
- crossesScore.textContent =  `Crosses score: ${counter1}`
+crossesScore.textContent =  `Crosses score: ${counter1}`
 zeroesScore.textContent =  `Zeroes score: ${counter}`
 
 let randomNum = function(){Math.floor((Math.random() * 2) + 1)};
@@ -287,7 +291,14 @@ function playGame(e) {
 arrfromBoardCells = Array.from(boardCells)
 
 
-
+// setInterval(() => {
+//    color++
+//    console.log(color)
+//    body.style.background = `${backgroundColors[color]}`
+//    if(color === backgroundColors.length - 1) {
+//       color = -1
+//    }
+// },3000)
 
 
 

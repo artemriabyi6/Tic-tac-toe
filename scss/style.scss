@@ -1,7 +1,8 @@
 body{
     margin: 0;
     padding: 0;
-    
+    background: linear-gradient( lightpink, lightblue);
+    transition: 0.5s;
     .score-box {
         display: flex;
         justify-content: space-around;
@@ -20,7 +21,8 @@ body{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 600px;
+        height: auto;
+        padding: 0px 0px 135px 0px;
         button {
             margin-bottom: 25px;
             width: 250px;
@@ -44,6 +46,7 @@ body{
             font-size: 2rem;
             font-weight: bold;
             margin-top: 0;
+            margin-bottom: 10px;
             animation-name: fade;
             animation-duration: 1.5s;
         }
@@ -54,7 +57,7 @@ body{
             width: 600px;
             .board-cell{
                 width: 195px;
-                height: 148px;
+                height: 128px;
                 border: 0.5px solid black;
                 display: flex;
                 justify-content: center;
