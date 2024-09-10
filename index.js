@@ -10,11 +10,6 @@ const zeroesScore = document.getElementById('zeroes-score')
 const body = document.getElementById('body')
 
 
-
-// let backgroundColors = ['lightblue', 'lightpink', 'lightgreen']
-
-
-
  let color = 0
  let counter = 0
  let counter1 = 0
@@ -37,19 +32,12 @@ function chooseTurn() {
       turn.textContent = 'Crosses turn'
    }
 
-   // if(turn.textContent !== null) {
-   //    choosetBtn.removeEventListener('click', chooseTurn)
-   // }   
 
    if(turn.textContent !== null) {
       arrfromBoardCells.forEach(cell => {
          cell.addEventListener('click', playGame)
       })
-   } else {
-      // arrfromBoardCells.forEach(cell => {
-      //    cell.removeEventListener('click', playGame)
-      // })
-   }
+   } 
 
    turn.textContent === 'Zeroes turn' ? turn.style.color = 'green' : turn.style.color = 'red'
 }
@@ -60,13 +48,11 @@ startBtn.addEventListener('click', () => {
    arrfromBoardCells.forEach(cell => {
       cell.textContent = ''
       cell.style.backgroundColor = 'inherit'
-       cell.addEventListener('click', playGame)
    })
 
    greeting.textContent = ''
-   // console.log(wrapper.contains(turn))
-   // wrapper.removeChild(turn)
-   console.log(randomNum = Math.floor((Math.random() * 2) + 1))
+   turn.textContent = ''
+   
 })
 
 
@@ -291,14 +277,6 @@ function playGame(e) {
 arrfromBoardCells = Array.from(boardCells)
 
 
-// setInterval(() => {
-//    color++
-//    console.log(color)
-//    body.style.background = `${backgroundColors[color]}`
-//    if(color === backgroundColors.length - 1) {
-//       color = -1
-//    }
-// },3000)
 
 
 
